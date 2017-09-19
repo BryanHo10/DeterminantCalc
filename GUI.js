@@ -64,8 +64,8 @@ function setup(){
     }
     function setElem(){
         
-        row=4;
-        col=6;
+        row=3;
+        col=3;
         
         
         

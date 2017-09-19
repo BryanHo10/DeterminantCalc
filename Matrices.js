@@ -28,13 +28,55 @@ function Matrix(r,c,arr){
     }
     
     
-    this.deterCalc=function(){
+    this.deterCalc=function(matrix){
+        var temp=matrix;
+        var deter=0;
+        if(temp.row==2&&temp.col==2){
+            return this.minimumDeter(temp);
+        }
+        for(var i=0;i<this.col;i+=this.col){
+            deter+=matrix[i]*this.coFactor(i);
+        }
+        
+        
+        
+        
+        
+        return 
+        
+        
+        
+        
+        
+        
         
     }
-    this.coFactor=function(){
+    this.coFactor=function(index){
+        var i=index/this.col+1;
+        var j=index%this.col+1;        
+        
+        
+        return Math.pow(-1,i+j);
+    }
+    this.minorCalc=function(i,j,matrix){
+        var temp=matrix;
+        var tempElem=[];
+        for(var a=0;a<matrix.elem.length;a++){
+            if(a%matrix.row!=i&&a%matrix.col!=j){
+                tempElem.push(matrix.elem[a]);
+            }
+        }
+        return new Matrix(matrix.row-1,matrix.col-1,tempElem);
+        
+        
+        
         
     }
-    this.minorCalc=function(){
+    this.minimumDeter=function(matrix){
+        var firstSet = matrix[0]*matrix[3];
+        var secSet=matrix[1]*matrix[2];
         
+        return firstSet-secSet;
     }
+    
 }
